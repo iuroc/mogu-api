@@ -63,3 +63,16 @@ export const downloadFile = (objectURL, filename) => {
     link.click();
     link.remove();
 };
+export const getImageBase64Src = async (imageUrl) => {
+    const data = await fetch(imageUrl).then(res => res.arrayBuffer());
+    const encrypted = lib.WordArray.create(data);
+    const imageId = imageUrl.match(/([^/]+)\.[^/]$/)[1];
+    const key = MD5(imageId);
+    const iv = key;
+    const decrypted = AES.decrypt({ ciphertext: encrypted }, key, {
+        iv,
+        padding: pad.Pkcs7,
+        mode: mode.CBC
+    });
+    return 'data:image/jpeg;base64,' + decrypted.toString(enc.Base64);
+};
