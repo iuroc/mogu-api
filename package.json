@@ -1,44 +1,37 @@
 {
     "scripts": {
         "build": "tsc",
-        "dev": "tsc -w",
-        "start": "node js/main.js"
+        "dev": "vite"
     },
     "dependencies": {
         "crypto-js": "^4.2.0",
-        "form-data": "^4.0.0",
-        "node-fetch": "^2.7.0"
+        "hls.js": "^1.5.8"
     },
     "devDependencies": {
         "@types/crypto-js": "^4.2.2",
-        "@types/form-data": "^2.5.0",
-        "@types/node": "^20.12.7",
-        "@types/node-fetch": "^2.6.11",
-        "typescript": "^5.4.5"
+        "typescript": "^5.4.5",
+        "vanjs-core": "^1.5.0",
+        "vite": "^5.2.10"
     },
-    "types": "src/dodoYoload.ts",
-    "name": "dodo-upload",
+    "types": "src/mogu.ts",
+    "name": "mogu-api",
     "version": "1.0.7",
-    "description": "DoDo 文件上传获取直链工具",
-    "main": "js/dodoUpload.js",
+    "description": "蘑菇视频 API 接口",
+    "main": "js/mogu.js",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/iuroc/dodo-upload.git"
-    },
-    "bin": {
-        "dodo-upload": "js/main.js"
+        "url": "git+https://github.com/iuroc/mogu-api.git"
     },
     "keywords": [
         "download",
-        "dodo",
-        "hmacsha1",
-        "tool",
-        "cli"
+        "video",
+        "m3u8",
+        "hls"
     ],
     "author": "iuroc",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/iuroc/dodo-upload/issues"
+        "url": "https://github.com/iuroc/mogu-api/issues"
     },
-    "homepage": "https://github.com/iuroc/dodo-upload#readme"
+    "homepage": "https://github.com/iuroc/mogu-api#readme"
 }
