@@ -95,6 +95,7 @@ export const getVideoListByType = async (typeIds: number[], options: {
     return data.data.list as VideoListItem[]
 }
 
+/** 下载文件 */
 export const downloadFile = (objectURL: string, filename: string) => {
     const link = document.createElement('a')
     link.href = objectURL

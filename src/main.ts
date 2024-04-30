@@ -1,5 +1,5 @@
 import van from 'vanjs-core'
-import { downloadFile, getVideoInfo, parseHlsURL } from './mogu'
+import { downloadFile, getVideoInfo, parseHlsURL, getAESConfig } from './mogu'
 
 const { div, button, input } = van.tags
 
