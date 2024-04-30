@@ -57,3 +57,6 @@ import {
 - `downloadFile`: (objectURL: string, filename: string) => void
     
     下载文件
+- `getImageBase64Src`: (imageUrl: string) => Promise<string>
+
+    将图片转换为 Base64 格式，返回值可直接设置为图片元素的 `src` 属性

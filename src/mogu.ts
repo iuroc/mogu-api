@@ -104,3 +104,17 @@ export const downloadFile = (objectURL: string, filename: string) => {
     link.remove()
 }
 
+/** 获取图片的 Base64 格式 src  */
+export const getImageBase64Src = async (imageUrl: string) => {
+    const data = await fetch(imageUrl).then(res => res.arrayBuffer())
+    const encrypted = lib.WordArray.create(data)
+    const imageId = imageUrl.match(/([^/]+)\.[^/]$/)![1]
+    const key = MD5(imageId)
+    const iv = key
+    const decrypted = AES.decrypt(<lib.CipherParams>{ ciphertext: encrypted }, key, {
+        iv,
+        padding: pad.Pkcs7,
+        mode: mode.CBC
+    })
+    return 'data:image/jpeg;base64,' + decrypted.toString(enc.Base64)
+}
