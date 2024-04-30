@@ -108,7 +108,7 @@ export const downloadFile = (objectURL: string, filename: string) => {
 export const getImageBase64Src = async (imageUrl: string) => {
     const data = await fetch(imageUrl).then(res => res.arrayBuffer())
     const encrypted = lib.WordArray.create(data)
-    const imageId = imageUrl.match(/([^/]+)\.[^/]$/)![1]
+    const imageId = imageUrl.match(/([^/]+)\.[^/]+$/)![1]
     const key = MD5(imageId)
     const iv = key
     const decrypted = AES.decrypt(<lib.CipherParams>{ ciphertext: encrypted }, key, {
